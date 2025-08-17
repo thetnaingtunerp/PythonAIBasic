@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <form action="/save" method="get">
+        <label for="">Name</label>
+        <input type="text" name="cname">
+        <br>
+
+        <label for="">Phone Number</label>
+        <input type="text" name="phone">
+        <br>
+
+        <label for="">Address</label>
+        <input type="text" name="address">
+        <br>
+        <button type="submit">Save</button>
+    </form>
+
+    <hr>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid blue;
+        }
+    </style>
+
+    <table style="width: 100%;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for itm in item %}
+            <tr>
+                <td>{{itm[0]}}</td>
+                <td>{{itm[1]}}</td>
+                <td>{{itm[2]}}</td>
+                <td>{{itm[3]}}</td>
+                <td>
+                    <a href="/delete/{{itm[0]}}">Delete</a>
+                    <a href="/edit/{{itm[0]}}">Edit</a>
+                </td>
+            </tr>
+            {%endfor%}
+
+        </tbody>
+    </table>
+
+
+</body>
+</html>
