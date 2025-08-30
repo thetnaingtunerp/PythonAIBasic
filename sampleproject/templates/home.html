@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Helo</h1>
+    <div id="chart_div"></div>
+    <div id="line_div"></div>
+
+<script src="
+https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.min.js
+"></script>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+      <script>
+        google.charts.load('current', {packages: ['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawMultSeries);
+
+function drawMultSeries() {
+      var data = google.visualization.arrayToDataTable({{data|safe}});
+
+      var options = {
+        title: 'Test Title',
+        chartArea: {width: '50%'},
+        hAxis: {
+          title: 'Totlal Sale',
+          minValue: 0
+        },
+        vAxis: {
+          title: 'Name'
+        }
+      };
+
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+      </script>
+
+
+
+</body>
+</html>
